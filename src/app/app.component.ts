@@ -6,19 +6,9 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  title = 'text';
-  bgToggle = false;
-  customStyle = {
-    width: '200px',
-    padding: '0.125rem 1rem',
-    lineHeight: '1',
-    borderRadius: '5px',
-    border: '1px solid #333',
-    background: this.bgToggle ? 'red' : 'blue',
-  };
+  pToggle = false;
 
   onToggle = () => {
-    console.log(this.customStyle);
-    this.bgToggle = !this.bgToggle;
+    this.pToggle = !this.pToggle;
   }
 }

@@ -4,13 +4,14 @@
     <app-main-page></app-main-page>
     <button
       type="button"
+      class="btn btn-info my-4"
       (click)="onToggle()"
     >
       toggleBg
     </button>
-    <h1
-      [ngStyle]="customStyle"
-    >{{ title }}</h1>
-    <input type="text" [(ngModel)]="title">
+    <div [ngSwitch]="pToggle">
+      <p *ngSwitchCase="true" class="p-4">4</p>
+      <p *ngSwitchCase="false" class="p-1">1</p>
+    </div>
   </div>
 </div>
