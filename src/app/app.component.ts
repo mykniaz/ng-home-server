@@ -1,27 +1,24 @@
 import { Component } from '@angular/core';
-import {Subscription, Subject} from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
 })
 
 export class AppComponent {
-  sub: Subscription;
-  stream$: Subject<number> = new Subject<number>();
-  counter = 0;
+  title = 'text';
+  bgToggle = false;
+  customStyle = {
+    width: '200px',
+    padding: '0.125rem 1rem',
+    lineHeight: '1',
+    borderRadius: '5px',
+    border: '1px solid #333',
+    background: this.bgToggle ? 'red' : 'blue',
+  };
 
-  constructor() {
-    this.sub = this.stream$.subscribe((value) => console.log(`subscribe: ${value}`));
-  }
-
-  stopInterval() {
-    this.sub.unsubscribe();
-  }
-
-  next() {
-    this.counter++
-    this.stream$.next(this.counter);
+  onToggle = () => {
+    console.log(this.customStyle);
+    this.bgToggle = !this.bgToggle;
   }
 }
