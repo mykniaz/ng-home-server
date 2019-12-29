@@ -5,10 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
 })
 
-export class AppComponent {
-  pToggle = false;
-
-  onToggle = () => {
-    this.pToggle = !this.pToggle;
-  }
-}
+export class AppComponent {}

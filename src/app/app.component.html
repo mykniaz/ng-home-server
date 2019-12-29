@@ -2,16 +2,5 @@
   <div class="container">
     <app-header></app-header>
     <app-main-page></app-main-page>
-    <button
-      type="button"
-      class="btn btn-info my-4"
-      (click)="onToggle()"
-    >
-      toggleBg
-    </button>
-    <div [ngSwitch]="pToggle">
-      <p *ngSwitchCase="true" class="p-4">4</p>
-      <p *ngSwitchCase="false" class="p-1">1</p>
-    </div>
   </div>
 </div>
