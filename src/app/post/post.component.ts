@@ -9,8 +9,13 @@ export class PostComponent {
   @Input() post: IPost;
 
   @Output() onRemove: EventEmitter<{id: string}> = new EventEmitter<{id: string}>();
+  @Output() onUpdate: EventEmitter<{id: string}> = new EventEmitter<{id: string}>();
 
   onRemovePost = (id: string) => {
     this.onRemove.emit({id});
+  }
+
+  onUpdatePost = (id: string) => {
+    this.onUpdate.emit({id});
   }
 }

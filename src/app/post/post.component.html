@@ -7,10 +7,17 @@
   <div class="card-footer">
     <button
       type="button"
-      class="btn btn-danger"
+      class="btn btn-danger mr-4"
       (click)="onRemovePost(post.id)"
     >
       Remove
+    </button>
+    <button
+      type="button"
+      class="btn btn-info"
+      (click)="onUpdatePost(post.id)"
+    >
+      Update
     </button>
   </div>
 </div>

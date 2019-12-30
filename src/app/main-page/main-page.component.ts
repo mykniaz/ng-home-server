@@ -8,6 +8,7 @@ import {IPost} from '../../types';
 export class MainPageComponent {
 
   posts: Array<IPost> = [];
+  editedPostData: IPost | undefined = undefined
 
   addNewPost(newPost: IPost) {
     this.posts.push(newPost);
@@ -15,5 +16,19 @@ export class MainPageComponent {
 
   onRemovePost($event: { id: string }) {
     this.posts = this.posts.filter((post: IPost) => post.id !== $event.id);
+  }
+
+  loadDataToUpdate($event: { id: string }) {
+    this.editedPostData = this.posts.find((post: IPost) => post.id === $event.id);
+  }
+
+  updatePost($event: IPost) {
+    const updatedPostIndex = this.posts.findIndex((post: IPost) => post.id === $event.id);
+
+    this.posts = [
+      ...this.posts.slice(0, updatedPostIndex),
+      $event,
+      ...this.posts.slice(updatedPostIndex + 1),
+    ];
   }
 }

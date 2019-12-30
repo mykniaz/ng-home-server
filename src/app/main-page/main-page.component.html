@@ -3,11 +3,16 @@
       <app-post
         [post]="post"
         (onRemove)="onRemovePost($event)"
+        (onUpdate)="loadDataToUpdate(($event))"
       ></app-post>
     </div>
 </div>
 <div class="row">
   <div class="col-12">
-    <app-post-form (onAdd)="addNewPost($event)" ></app-post-form>
+    <app-post-form
+      (onAdd)="addNewPost($event)"
+      (onUpdate)="updatePost($event)"
+      [editedPost]="editedPostData"
+    ></app-post-form>
   </div>
 </div>
