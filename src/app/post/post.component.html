@@ -1,11 +1,16 @@
-<div class="card">
+<div class="card mb-4">
   <div class="card-body">
     <h5 class="card-title">{{ post.title }}</h5>
     <h6 class="card-subtitle mb-2 text-muted">{{ post.subtitle }}</h6>
     {{ post.body }}
   </div>
   <div class="card-footer">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+    <button
+      type="button"
+      class="btn btn-danger"
+      (click)="onRemovePost(post.id)"
+    >
+      Remove
+    </button>
   </div>
 </div>

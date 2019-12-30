@@ -1,14 +1,20 @@
 <div class="card">
   <div class="card-header">Form</div>
   <div class="card-body">
-    <form class="form">
+    <form class="form" #heroForm="ngForm">
       <div class="form-group">
         <div class="row">
           <div class="col-3">
             <div class="col-form-label">Title</div>
           </div>
           <div class="col-9">
-            <input type="text" class="form-control">
+            <input
+              type="text"
+              class="form-control"
+              required="true"
+              [(ngModel)]="postFormModel.title"
+              [ngModelOptions]="{standalone: true}"
+            >
           </div>
         </div>
       </div>
@@ -18,7 +24,13 @@
             <div class="col-form-label">Subtitle</div>
           </div>
           <div class="col-9">
-            <input type="text" class="form-control" [ngModel]="postFormModel.subtitle">
+            <input
+              type="text"
+              class="form-control"
+              required="true"
+              [(ngModel)]="postFormModel.subtitle"
+              [ngModelOptions]="{standalone: true}"
+            >
           </div>
         </div>
       </div>
@@ -28,7 +40,13 @@
             <div class="col-form-label">Body</div>
           </div>
           <div class="col-9">
-            <textarea type="text" class="form-control"></textarea>
+            <textarea
+              type="text"
+              class="form-control"
+              required="true"
+              [(ngModel)]="postFormModel.body"
+              [ngModelOptions]="{standalone: true}"
+            ></textarea>
           </div>
         </div>
       </div>
@@ -36,8 +54,9 @@
   </div>
   <div class="card-footer">
     <button
-      type="submit"
+      type="button"
       class="btn btn-success"
+      (click)="addNewPost()"
     >
       Submit
     </button>

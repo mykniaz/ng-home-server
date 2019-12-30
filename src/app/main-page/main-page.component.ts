@@ -7,18 +7,13 @@ import {IPost} from '../../types';
 })
 export class MainPageComponent {
 
-  posts: Array<IPost> = [
-    {
-      title: 'title',
-      subtitle: 'subtitle',
-      body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti dicta dolor exercitationem iure neque nisi nobis omnis' +
-        ' similique suscipit tenetur.',
-    },
-    {
-      title: 'title',
-      subtitle: 'subtitle',
-      body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti dicta dolor exercitationem iure neque nisi nobis omnis' +
-        ' similique suscipit tenetur.',
-    },
-  ];
+  posts: Array<IPost> = [];
+
+  addNewPost(newPost: IPost) {
+    this.posts.push(newPost);
+  }
+
+  onRemovePost($event: { id: string }) {
+    this.posts = this.posts.filter((post: IPost) => post.id !== $event.id);
+  }
 }

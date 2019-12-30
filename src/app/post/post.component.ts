@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {IPost} from '../../types';
 
 @Component({
@@ -7,4 +7,10 @@ import {IPost} from '../../types';
 })
 export class PostComponent {
   @Input() post: IPost;
+
+  @Output() onRemove: EventEmitter<{id: string}> = new EventEmitter<{id: string}>();
+
+  onRemovePost = (id: string) => {
+    this.onRemove.emit({id});
+  }
 }
