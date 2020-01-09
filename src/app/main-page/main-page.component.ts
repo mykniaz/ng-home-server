@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {IPost} from '../../types';
 
 @Component({
@@ -8,7 +8,7 @@ import {IPost} from '../../types';
 export class MainPageComponent {
 
   posts: Array<IPost> = [];
-  editedPostData: IPost | undefined = undefined
+  editedPostData: IPost | undefined = undefined;
 
   addNewPost(newPost: IPost) {
     this.posts.push(newPost);
