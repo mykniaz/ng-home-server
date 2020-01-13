@@ -4,7 +4,7 @@
   "scripts": {
     "start": "cd ng-home-server-web-app && ng serve",
     "build": "cd ng-home-server-web-app && ng build",
-    "server": "cd ng-home-server-web-app && start"
+    "server": "cd ng-home-server-api && yarn start"
   },
   "private": true,
   "dependencies": {},
