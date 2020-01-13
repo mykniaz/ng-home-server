@@ -8,14 +8,14 @@ import {IPost} from '../../types';
 export class PostComponent {
   @Input() post: IPost;
 
-  @Output() onRemove: EventEmitter<{id: string}> = new EventEmitter<{id: string}>();
-  @Output() onUpdate: EventEmitter<{id: string}> = new EventEmitter<{id: string}>();
+  @Output() remove: EventEmitter<{id: string}> = new EventEmitter<{id: string}>();
+  @Output() update: EventEmitter<{id: string}> = new EventEmitter<{id: string}>();
 
   onRemovePost = (id: string) => {
-    this.onRemove.emit({id});
+    this.remove.emit({id});
   }
 
   onUpdatePost = (id: string) => {
-    this.onUpdate.emit({id});
+    this.update.emit({id});
   }
 }

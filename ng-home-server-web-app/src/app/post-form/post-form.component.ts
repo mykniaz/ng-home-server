@@ -20,17 +20,17 @@ export class PostFormComponent {
     }
   }
 
-  @Output() onAdd: EventEmitter<IPost> = new EventEmitter<IPost>();
-  @Output() onUpdate: EventEmitter<IPost> = new EventEmitter<IPost>();
+  @Output() add: EventEmitter<IPost> = new EventEmitter<IPost>();
+  @Output() update: EventEmitter<IPost> = new EventEmitter<IPost>();
 
   postFormModel: IPost = postModel();
 
   submitForm = () => {
     if (this.postFormModel.title.trim() && this.postFormModel.subtitle.trim() && this.postFormModel.body.trim()) {
       if (this.postFormModel.id !== '') {
-        this.onUpdate.emit(this.postFormModel);
+        this.update.emit(this.postFormModel);
       } else {
-        this.onAdd.emit(postModel({
+        this.add.emit(postModel({
           ...this.postFormModel,
           id: (new Date()).valueOf().toString()
         }));

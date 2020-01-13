@@ -2,16 +2,16 @@
     <div class="col-6" *ngFor="let post of posts">
       <app-post
         [post]="post"
-        (onRemove)="onRemovePost($event)"
-        (onUpdate)="loadDataToUpdate(($event))"
+        (remove)="onRemovePost($event)"
+        (update)="loadDataToUpdate(($event))"
       ></app-post>
     </div>
 </div>
 <div class="row">
   <div class="col-12">
     <app-post-form
-      (onAdd)="addNewPost($event)"
-      (onUpdate)="updatePost($event)"
+      (add)="addNewPost($event)"
+      (update)="updatePost($event)"
       [editedPost]="editedPostData"
     ></app-post-form>
   </div>
