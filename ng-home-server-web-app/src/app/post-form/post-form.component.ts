@@ -7,7 +7,7 @@ const postModel = (data = {}) => ({
   subtitle: '',
   body: '',
   ...data
-})
+});
 
 @Component({
   selector: 'app-post-form',
