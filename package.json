@@ -2,8 +2,8 @@
   "name": "ng-home-server",
   "version": "0.0.0",
   "scripts": {
-    "start": "cd ng-home-server-web-app && ng serve",
-    "build": "cd ng-home-server-web-app && ng build",
+    "start": "cd ng-home-server-web-app && yarn start",
+    "build": "cd ng-home-server-web-app && yarn build",
     "server": "cd ng-home-server-api && yarn start"
   },
   "private": true,

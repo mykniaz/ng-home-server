@@ -11,6 +11,9 @@ export class MainPageComponent {
   editedPostData: IPost | undefined = undefined;
 
   addNewPost(newPost: IPost) {
+    fetch('api/movies/').then(r => (
+      console.log(r)
+    ));
     this.posts.push(newPost);
   }
 
