@@ -4,6 +4,7 @@ import { json } from 'body-parser';
 // Routers
 import { moviesRouter } from './movies/routes';
 import { userRouter } from './users/routes';
+import { weatherRouter } from './weather/routes';
 
 // Database
 import { Database } from './database';
@@ -19,6 +20,7 @@ app.use(json({ type: 'application/*+json' }));
 
 app.use('/', userRouter);
 app.use('/movies', moviesRouter);
+app.use('/weather', weatherRouter);
 
 const database = new Database(URI);
 
