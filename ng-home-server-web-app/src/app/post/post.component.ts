@@ -1,9 +1,10 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 import {IPost} from '../../types';
 
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PostComponent {
   @Input() post: IPost;

@@ -9,6 +9,9 @@ import { HeaderComponent } from './header/header.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { PostFormComponent } from './post-form/post-form.component';
 
+// Directives
+import { StyleDirective } from './directives/style.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,11 +19,12 @@ import { PostFormComponent } from './post-form/post-form.component';
     HeaderComponent,
     MainPageComponent,
     PostFormComponent,
+    StyleDirective,
   ],
   imports: [
     FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
