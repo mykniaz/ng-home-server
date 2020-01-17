@@ -11,6 +11,7 @@ import { PostFormComponent } from './post-form/post-form.component';
 
 // Directives
 import { StyleDirective } from './directives/style.directive';
+import { NgIfNotDirective } from './directives/ng-if-not.directive';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { StyleDirective } from './directives/style.directive';
     MainPageComponent,
     PostFormComponent,
     StyleDirective,
+    NgIfNotDirective,
   ],
   imports: [
     FormsModule,
