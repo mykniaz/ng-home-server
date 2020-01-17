@@ -9,7 +9,6 @@ import { HeaderComponent } from './header/header.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { PostFormComponent } from './post-form/post-form.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,4 +24,5 @@ import { PostFormComponent } from './post-form/post-form.component';
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
