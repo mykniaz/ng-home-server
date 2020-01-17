@@ -9,9 +9,6 @@ import { HeaderComponent } from './header/header.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { PostFormComponent } from './post-form/post-form.component';
 
-// Directives
-import { StyleDirective } from './directives/style.directive';
-import { NgIfNotDirective } from './directives/ng-if-not.directive';
 
 @NgModule({
   declarations: [
@@ -20,15 +17,12 @@ import { NgIfNotDirective } from './directives/ng-if-not.directive';
     HeaderComponent,
     MainPageComponent,
     PostFormComponent,
-    StyleDirective,
-    NgIfNotDirective,
   ],
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule,
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

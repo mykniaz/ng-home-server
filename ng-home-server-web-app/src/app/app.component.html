@@ -2,36 +2,5 @@
   <div class="container">
     <app-header></app-header>
     <app-main-page></app-main-page>
-
-    <p
-      appStyle
-      [dStyle]="{ color: 'blue', fontWeight: 'bold' }"
-    >
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, quis.
-    </p>
-    <p
-      appStyle
-      [dStyle]="{ color: 'blue', fontWeight: 'bold' }"
-    >
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, quis.
-    </p>
-    <button class="btn" (click)="isVisible = !isVisible">toggle</button>
-
-    <ng-template [ngIf]="isVisible">
-      <div class="wrap">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi eos excepturi labore laudantium quae quo
-          repellendus, repudiandae sed tempora veritatis.
-        </p>
-      </div>
-    </ng-template>
-    <ng-template [appNgIfNot]="isVisible">
-      <div class="wrap">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        </p>
-      </div>
-    </ng-template>
-
   </div>
 </div>

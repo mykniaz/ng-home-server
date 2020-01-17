@@ -34,4 +34,5 @@ export class MainPageComponent {
       ...this.posts.slice(updatedPostIndex + 1),
     ];
   }
+
 }
