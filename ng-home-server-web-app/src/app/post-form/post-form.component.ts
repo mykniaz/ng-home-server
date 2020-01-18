@@ -5,13 +5,13 @@ import {
   Output,
 } from '@angular/core';
 import {IPost} from '../../types';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-post-form',
   templateUrl: './post-form.component.html',
 })
-export class PostFormComponent implements OnInit{
+export class PostFormComponent implements OnInit {
 
   @Input() set editedPost(post: IPost | undefined) {
     if (post) {
@@ -27,14 +27,18 @@ export class PostFormComponent implements OnInit{
   ngOnInit(): void {
     this.form = new FormGroup({
       id: new FormControl(null),
-      title: new FormControl(null),
-      subtitle: new FormControl(null),
-      body: new FormControl(null)
+      title: new FormControl(null, Validators.required),
+      subtitle: new FormControl(null, Validators.required),
+      body: new FormControl(null, [Validators.required, Validators.minLength(20)]),
     });
   }
 
   submitForm = () => {
-    console.log(this.form)
+    if (this.form.status === 'INVALID') {
+      console.log(this.form);
+
+      return;
+    }
 
     if (this.form.value.id) {
       this.update.emit(this.form.value);
@@ -42,13 +46,12 @@ export class PostFormComponent implements OnInit{
       this.form.setValue({
         ...this.form.value,
         id: new Date().valueOf().toString()
-      })
+      });
 
       this.add.emit(this.form.value);
     }
 
     this.form.reset();
-
-    console.log(this.form)
   }
+
 }
