@@ -1,7 +1,7 @@
-<div class="card">
+<form class="card" [formGroup]="form" (ngSubmit)="submitForm()">
   <div class="card-header"><ng-content></ng-content></div>
   <div class="card-body">
-    <form class="form" #heroForm="ngForm">
+    <div class="form">
       <div class="form-group">
         <div class="row">
           <div class="col-3">
@@ -12,8 +12,7 @@
               type="text"
               class="form-control"
               required="true"
-              [(ngModel)]="postFormModel.title"
-              [ngModelOptions]="{standalone: true}"
+              formControlName="title"
             >
           </div>
         </div>
@@ -28,8 +27,7 @@
               type="text"
               class="form-control"
               required="true"
-              [(ngModel)]="postFormModel.subtitle"
-              [ngModelOptions]="{standalone: true}"
+              formControlName="subtitle"
             >
           </div>
         </div>
@@ -44,21 +42,19 @@
               type="text"
               class="form-control"
               required="true"
-              [(ngModel)]="postFormModel.body"
-              [ngModelOptions]="{standalone: true}"
+              formControlName="body"
             ></textarea>
           </div>
         </div>
       </div>
-    </form>
+    </div>
   </div>
   <div class="card-footer">
     <button
-      type="button"
+      type="submit"
       class="btn btn-success"
-      (click)="submitForm()"
     >
       Submit
     </button>
   </div>
-</div>
+</form>

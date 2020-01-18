@@ -1,49 +1,54 @@
 import {
   Component,
   EventEmitter,
-  Input,
+  Input, OnInit,
   Output,
 } from '@angular/core';
 import {IPost} from '../../types';
-
-const postModel = (data = {}) => ({
-  id: '',
-  title: '',
-  subtitle: '',
-  body: '',
-  ...data
-});
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-post-form',
   templateUrl: './post-form.component.html',
 })
-export class PostFormComponent {
+export class PostFormComponent implements OnInit{
+
   @Input() set editedPost(post: IPost | undefined) {
     if (post) {
-      this.postFormModel = postModel(post);
+      this.form.patchValue(post);
     }
   }
+
+  form: FormGroup;
 
   @Output() add: EventEmitter<IPost> = new EventEmitter<IPost>();
   @Output() update: EventEmitter<IPost> = new EventEmitter<IPost>();
 
-  postFormModel: IPost = postModel();
+  ngOnInit(): void {
+    this.form = new FormGroup({
+      id: new FormControl(null),
+      title: new FormControl(null),
+      subtitle: new FormControl(null),
+      body: new FormControl(null)
+    });
+  }
 
   submitForm = () => {
-    if (this.postFormModel.title.trim() && this.postFormModel.subtitle.trim() && this.postFormModel.body.trim()) {
-      if (this.postFormModel.id !== '') {
-        this.update.emit(this.postFormModel);
-      } else {
-        this.add.emit(postModel({
-          ...this.postFormModel,
-          id: (new Date()).valueOf().toString()
-        }));
-      }
+    console.log(this.form)
 
-      this.postFormModel = {
-        ...postModel()
-      };
+    if (this.form.value.id) {
+      this.update.emit(this.form.value);
+    } else {
+      this.form.setValue({
+        ...this.form.value,
+        id: new Date().valueOf().toString()
+      })
+
+      this.add.emit(this.form.value);
     }
+
+    this.form.reset();
+
+    console.log(this.form)
   }
 }
