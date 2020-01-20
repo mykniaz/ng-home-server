@@ -1,0 +1,16 @@
+<div class="btn-group mt-4">
+  <button
+    class="btn btn-secondary"
+    [ngClass]="{'btn-success': state === 'on'}"
+    (click)="setState('on')"
+  >
+    on
+  </button>
+  <button
+    class="btn btn-secondary"
+    [ngClass]="{'btn-success': state === 'off'}"
+    (click)="setState('off')"
+  >
+    off
+  </button>
+</div>

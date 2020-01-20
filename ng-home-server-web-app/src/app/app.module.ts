@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { PostFormComponent } from './post-form/post-form.component';
+import { CommuterComponent } from './ui/commuter/commuter.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { PostFormComponent } from './post-form/post-form.component';
     HeaderComponent,
     MainPageComponent,
     PostFormComponent,
+    CommuterComponent,
   ],
   imports: [
     FormsModule,
