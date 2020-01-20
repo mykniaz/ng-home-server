@@ -2,5 +2,42 @@
   <div class="container">
     <app-header></app-header>
     <app-main-page></app-main-page>
+
+    <hr>
+    <div class="card">
+      <div class="card-body">
+        <input type="text" class="form-control" placeholder="title" [(ngModel)]="title">
+        <button type="button" class="btn btn-success" (click)="submitForm()">Add New Todo</button>
+      </div>
+    </div>
+
+    <div
+      class="card"
+      *ngFor="let todo of todoArr"
+    >
+      <div class="card-body">
+        <div class="row">
+          <div class="col-8">{{ todo.title | titlecase }}</div>
+          <div class="col-4 text-right">
+            <div class="btn-group">
+              <button
+                type="button"
+                class="btn btn-info"
+                (click)="finish(todo.id)"
+              >
+                Finish
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                (click)="remove(todo.id)"
+              >
+                Remove
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

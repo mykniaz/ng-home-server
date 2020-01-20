@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { PostFormComponent } from './post-form/post-form.component';
 import { CommuterComponent } from './ui/commuter/commuter.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,9 +22,10 @@ import { CommuterComponent } from './ui/commuter/commuter.component';
   ],
   imports: [
     FormsModule,
-    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   bootstrap: [AppComponent]
 })
