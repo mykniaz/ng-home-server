@@ -1,0 +1,14 @@
+input, textarea {
+  &.ng-invalid:not(.ng-untouched) {
+    border-color: #db5255;
+  }
+
+  &.ng-valid:not(.ng-untouched) {
+    border-color: #28a745;
+  }
+}
+
+.error-text {
+  font-size: 0.8rem;
+  color: #db5255;
+}

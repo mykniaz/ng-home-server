@@ -34,7 +34,7 @@ export class PostFormComponent implements OnInit {
   }
 
   submitForm = () => {
-    if (this.form.status === 'INVALID') {
+    if (this.form.invalid) {
       console.log(this.form);
 
       return;

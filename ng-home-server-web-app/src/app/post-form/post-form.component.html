@@ -5,7 +5,7 @@
       <div class="form-group">
         <div class="row">
           <div class="col-3">
-            <div class="col-form-label">Title</div>
+            <div class="col-form-label">Title*</div>
           </div>
           <div class="col-9">
             <input
@@ -16,11 +16,17 @@
             >
           </div>
         </div>
+        <div class="row" *ngIf="form.get('title').invalid && form.get('title').touched">
+          <div class="col-3"></div>
+          <div class="col-9 error-text">
+            Title if required
+          </div>
+        </div>
       </div>
       <div class="form-group">
         <div class="row">
           <div class="col-3">
-            <div class="col-form-label">Subtitle</div>
+            <div class="col-form-label">Subtitle*</div>
           </div>
           <div class="col-9">
             <input
@@ -31,19 +37,45 @@
             >
           </div>
         </div>
+        <div class="row" *ngIf="form.get('subtitle').invalid && form.get('subtitle').touched">
+          <div class="col-3"></div>
+          <div class="col-9 error-text">
+            Subtitle if required
+          </div>
+        </div>
       </div>
       <div class="form-group">
         <div class="row">
-          <div class="col-3">
-            <div class="col-form-label">Body</div>
+          <div class="col-12">
+            <div class="col-form-label">Body*</div>
           </div>
-          <div class="col-9">
+          <div class="col-12">
             <textarea
               type="text"
               class="form-control"
               required="true"
               formControlName="body"
             ></textarea>
+          </div>
+        </div>
+        <div
+          class="row"
+          *ngIf="form.get('body').invalid && form.get('body').touched"
+        >
+          <div
+            class="col-12 error-text"
+            *ngIf="form.get('body').errors.required"
+          >
+            Post text if required
+          </div>
+          <div
+            class="col-12 error-text"
+            *ngIf="form.get('body').errors.minlength"
+          >
+            Post text is too short. It must be less than
+            {{ form.get('body').errors.minlength.requiredLength }}
+            but now it is
+            {{ form.get('body').errors.minlength.actualLength }}
           </div>
         </div>
       </div>
@@ -53,6 +85,7 @@
     <button
       type="submit"
       class="btn btn-success"
+      [disabled]="form.invalid"
     >
       Submit
     </button>
