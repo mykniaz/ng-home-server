@@ -11,29 +11,41 @@
       </div>
     </div>
 
-    <div
-      class="card"
-      *ngFor="let todo of todoArr"
-    >
-      <div class="card-body">
-        <div class="row">
-          <div class="col-8">{{ todo.title | titlecase }}</div>
-          <div class="col-4 text-right">
-            <div class="btn-group">
-              <button
-                type="button"
-                class="btn btn-info"
-                (click)="finish(todo.id)"
-              >
-                Finish
-              </button>
-              <button
-                type="button"
-                class="btn btn-danger"
-                (click)="remove(todo.id)"
-              >
-                Remove
-              </button>
+    <ng-template #loadingBlock>
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </ng-template>
+    <div *ngIf="!isLoading; else loadingBlock" >
+      <div
+        class="card"
+        *ngFor="let todo of todoArr"
+      >
+        <div class="card-body">
+          <div class="row">
+            <div
+              class="col-8"
+              [ngClass]="{'font-weight-bold': todo.completed === true}"
+            >
+              {{ todo.title | titlecase }}
+            </div>
+            <div class="col-4 text-right">
+              <div class="btn-group">
+                <button
+                  type="button"
+                  class="btn btn-info"
+                  (click)="finish(todo.id)"
+                >
+                  Finish
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  (click)="remove(todo.id)"
+                >
+                  Remove
+                </button>
+              </div>
             </div>
           </div>
         </div>
