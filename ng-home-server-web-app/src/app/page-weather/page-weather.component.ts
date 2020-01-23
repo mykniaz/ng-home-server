@@ -1,5 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import WeatherService from '../services/weather.service';
+import {delay} from 'rxjs/operators';
+import {error} from 'util';
 
 @Component({
   selector: 'app-page-weather',
@@ -42,27 +44,35 @@ export class PageWeatherComponent implements OnInit, OnDestroy{
     this.getWeatherData();
   }
 
-  fillWeatherData(valueName: string, newValue: string | number, newDate: Date) {
-    this[valueName].lineData[0].data = [
-      ...this[valueName].lineData[0].data.slice(1, 20),
-      newValue,
-    ];
-    this[valueName].lineLabels = [
-      ...this[valueName].lineLabels.slice(1, 20),
-      `${newDate.getHours()}:${newDate.getMinutes()}:${newDate.getSeconds()}`,
-    ];
+  getNewWeatherData(oldDate, newValue: string | number, newDate: Date) {
+    return {
+      ...oldDate,
+      lineData: [{
+        data: [
+          ...oldDate.lineData[0].data.slice(1, 20),
+          newValue,
+        ],
+        label: oldDate.lineData.label,
+      }],
+      lineLabels: [
+        ...oldDate.lineLabels.slice(1, 20),
+        `${newDate.getHours()}:${newDate.getMinutes()}:${newDate.getSeconds()}`,
+      ],
+    };
   }
 
-  getWeatherData() {
-    this.weather$ = this.weather.getWeather().subscribe((body) => {
-      const date = new Date(body.date)
+  getWeatherData(delayMs: number = 1000) {
+    this.weather$ = this.weather.getWeather()
+      .pipe(delay(delayMs))
+      .subscribe((body) => {
+        const date = new Date(body.date);
 
-      this.fillWeatherData('temperatureData', body.temperature, date);
-      this.fillWeatherData('humidityData', body.humidity, date);
-      this.fillWeatherData('pressureData', body.pressure, date);
+        this.temperatureData = this.getNewWeatherData(this.temperatureData, body.temperature, date);
+        this.humidityData = this.getNewWeatherData(this.humidityData, body.humidity, date);
+        this.pressureData = this.getNewWeatherData(this.pressureData, body.pressure, date);
 
-      this.getWeatherData();
-    });
+        this.getWeatherData(delayMs);
+      });
   }
 
   ngOnDestroy(): void {
