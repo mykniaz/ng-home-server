@@ -8,13 +8,13 @@ import {error} from 'util';
   templateUrl: './page-weather.component.html',
   styleUrls: ['./page-weather.component.scss']
 })
-export class PageWeatherComponent implements OnInit, OnDestroy{
+export class PageWeatherComponent implements OnInit, OnDestroy {
   temperatureData = {
     lineData: [{data: new Array(20), label: 'Temperature'}],
     lineLabels: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
     colors: [{
       borderColor: '#9a6c30',
-      backgroundColor: 'rgba(255,137,101,0.2)',
+      backgroundColor: 'rgba(255,135,100,0.2)',
     }],
   };
 
@@ -23,7 +23,7 @@ export class PageWeatherComponent implements OnInit, OnDestroy{
     lineLabels: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
     colors: [{
       borderColor: '#2b629a',
-      backgroundColor: 'rgba(0,123,255,.2)',
+      backgroundColor: 'rgba(0,125,255,0.2)',
     }],
   };
 
@@ -32,7 +32,7 @@ export class PageWeatherComponent implements OnInit, OnDestroy{
     lineLabels: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
     colors: [{
       borderColor: '#95989a',
-      backgroundColor: 'rgba(224,216,224,0.2)',
+      backgroundColor: 'rgba(180,180,180,0.2)',
     }],
   };
 
