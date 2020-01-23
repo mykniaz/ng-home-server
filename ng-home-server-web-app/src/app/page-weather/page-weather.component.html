@@ -1,1 +1,19 @@
 <p>page-weather works!</p>
+
+<app-line-chart
+  [lineChartData]="temperatureData.lineData"
+  [lineChartLabels]="temperatureData.lineLabels"
+  [lineChartColors]="temperatureData.colors"
+></app-line-chart>
+
+<app-line-chart
+  [lineChartData]="humidityData.lineData"
+  [lineChartLabels]="humidityData.lineLabels"
+  [lineChartColors]="humidityData.colors"
+></app-line-chart>
+
+<app-line-chart
+  [lineChartData]="pressureData.lineData"
+  [lineChartLabels]="pressureData.lineLabels"
+  [lineChartColors]="pressureData.colors"
+></app-line-chart>

@@ -3,8 +3,18 @@ type TGetAsyncParam = () => Promise<number>;
 type TGetRandInRange = (min: number, max: number) => number;
 
 export class Weather {
+  private gaussRandom(v: number) {
+    let r = 0;
+
+    for (let i = v; i > 0; i --) {
+      r += Math.random();
+    }
+
+    return r / v;
+  }
+
   private getRandInRange: TGetRandInRange = (min, max) => {
-    return Math.random() * (max - min) + min;
+    return this.gaussRandom(6) * (max - min) + min;
   }
 
   public getTemperature: TGetAsyncParam = async () => {

@@ -11,9 +11,10 @@ const getWeatherController = async (req: Request, res: Response) =>  {
     temperature,
     humidity,
     pressure,
+    date: new Date(),
   };
 
-  res.send({ weatherData, date: new Date() });
+  res.send(weatherData);
 };
 
 export default getWeatherController;

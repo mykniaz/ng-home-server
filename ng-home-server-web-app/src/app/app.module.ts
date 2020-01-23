@@ -14,6 +14,9 @@ import { PageTodoComponent } from './page-todo/page-todo.component';
 import { PageMainComponent } from './page-main/page-main.component';
 import { PageWeatherComponent } from './page-weather/page-weather.component';
 
+import { ChartsModule } from 'ng2-charts';
+import { LineChartComponent } from './line-chart/line-chart.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,9 +28,11 @@ import { PageWeatherComponent } from './page-weather/page-weather.component';
     PageTodoComponent,
     PageMainComponent,
     PageWeatherComponent,
+    LineChartComponent,
   ],
   imports: [
     FormsModule,
+    ChartsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
