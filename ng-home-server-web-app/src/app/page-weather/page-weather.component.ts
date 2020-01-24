@@ -1,7 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import WeatherService from '../services/weather.service';
-import {delay} from 'rxjs/operators';
-import {error} from 'util';
+import {timeout} from 'rxjs/operators';
 
 @Component({
   selector: 'app-page-weather',
@@ -37,6 +36,7 @@ export class PageWeatherComponent implements OnInit, OnDestroy {
   };
 
   weather$;
+  checkWeatherTimeout;
 
   constructor(private weather: WeatherService) { }
 
@@ -52,7 +52,7 @@ export class PageWeatherComponent implements OnInit, OnDestroy {
           ...oldDate.lineData[0].data.slice(1, 20),
           newValue,
         ],
-        label: oldDate.lineData.label,
+        label: oldDate.lineData[0].label,
       }],
       lineLabels: [
         ...oldDate.lineLabels.slice(1, 20),
@@ -61,9 +61,8 @@ export class PageWeatherComponent implements OnInit, OnDestroy {
     };
   }
 
-  getWeatherData(delayMs: number = 1000) {
+  getWeatherData(delayMs: number = 5000) {
     this.weather$ = this.weather.getWeather()
-      .pipe(delay(delayMs))
       .subscribe((body) => {
         const date = new Date(body.date);
 
@@ -71,11 +70,13 @@ export class PageWeatherComponent implements OnInit, OnDestroy {
         this.humidityData = this.getNewWeatherData(this.humidityData, body.humidity, date);
         this.pressureData = this.getNewWeatherData(this.pressureData, body.pressure, date);
 
-        this.getWeatherData(delayMs);
+        this.weather$.unsubscribe();
+        this.checkWeatherTimeout = setTimeout(() => this.getWeatherData(delayMs), delayMs);
       });
   }
 
   ngOnDestroy(): void {
+    clearTimeout(this.checkWeatherTimeout);
     this.weather$.unsubscribe();
   }
 

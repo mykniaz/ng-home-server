@@ -1,4 +1,4 @@
-<header class="navbar navbar-expand navbar-dark bg-danger mb-4">
+<header class="navbar navbar-expand navbar-dark bg-dark mb-4">
   <a
     class="navbar-brand"
     routerLink="/"
@@ -41,6 +41,22 @@
       >
         Weather
       </a>
+    </li>
+    <li class="nav-item">
+      <button
+        class="btn btn-sm btn-success"
+        (click)="auth.login()"
+      >
+        Login
+      </button>
+    </li>
+    <li class="nav-item" routerLinkActive="active">
+      <button
+        class="btn btn-sm btn-warning"
+        (click)="auth.logout()"
+      >
+        Logout
+      </button>
     </li>
   </ul>
 </header>

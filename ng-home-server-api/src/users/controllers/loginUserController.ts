@@ -2,12 +2,11 @@ import { Request, Response } from 'express';
 
 import { IUserProps, userModel } from '../models';
 
-const loginMovieController = async (req: Request, res: Response) =>  {
+const loginUserController = async (req: Request, res: Response) =>  {
   try {
     const user: IUserProps | null = await userModel.findOne({ login: req.body.login }).exec();
 
-    if (user) {
-      // @ts-ignore
+    if (user && user.comparePassword) {
       user.comparePassword(req.body.password, (error: any, match: any) => {
         if (!match) {
           return res.status(400).send({ message: 'The password is invalid' });
@@ -31,4 +30,4 @@ const loginMovieController = async (req: Request, res: Response) =>  {
   }
 };
 
-export default loginMovieController;
+export default loginUserController;
