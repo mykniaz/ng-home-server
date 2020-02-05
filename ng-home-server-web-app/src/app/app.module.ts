@@ -17,6 +17,7 @@ import { PageWeatherComponent } from './page-weather/page-weather.component';
 import { ChartsModule } from 'ng2-charts';
 import { LineChartComponent } from './line-chart/line-chart.component';
 import { PageErrorComponent } from './page-error/page-error.component';
+import { ModalComponent } from './ui/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { PageErrorComponent } from './page-error/page-error.component';
     PageWeatherComponent,
     LineChartComponent,
     PageErrorComponent,
+    ModalComponent,
   ],
   imports: [
     FormsModule,
