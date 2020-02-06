@@ -2,6 +2,15 @@
   <div class="container">
     <app-header></app-header>
     <router-outlet></router-outlet>
-    <app-modal></app-modal>
+    <button class="btn" (click)="showModal()">open</button>
+<!--    <app-modal-->
+<!--      title="Custom Title"-->
+<!--      (close)="onCloseModal()"-->
+<!--      *ngIf="isShownModal"-->
+<!--    ></app-modal>-->
   </div>
 </div>
+
+<ng-template appRef>
+
+</ng-template>

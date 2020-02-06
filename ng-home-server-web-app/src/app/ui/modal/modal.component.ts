@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-modal',
@@ -9,6 +9,8 @@ export class ModalComponent {
 
   constructor() { }
 
-  title = '';
+  @Input() title = 'Default Title';
+
+  @Output() close = new EventEmitter<void>();
 
 }

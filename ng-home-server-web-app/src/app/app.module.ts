@@ -18,6 +18,7 @@ import { ChartsModule } from 'ng2-charts';
 import { LineChartComponent } from './line-chart/line-chart.component';
 import { PageErrorComponent } from './page-error/page-error.component';
 import { ModalComponent } from './ui/modal/modal.component';
+import {RefDirective} from './ref.directive';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ModalComponent } from './ui/modal/modal.component';
     LineChartComponent,
     PageErrorComponent,
     ModalComponent,
+    RefDirective,
   ],
   imports: [
     FormsModule,
@@ -41,6 +43,9 @@ import { ModalComponent } from './ui/modal/modal.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+  ],
+  entryComponents: [
+    ModalComponent,
   ],
   bootstrap: [AppComponent]
 })
