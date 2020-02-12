@@ -18,23 +18,24 @@ import { ChartsModule } from 'ng2-charts';
 import { LineChartComponent } from './line-chart/line-chart.component';
 import { PageErrorComponent } from './page-error/page-error.component';
 import { ModalComponent } from './ui/modal/modal.component';
-import {RefDirective} from './ref.directive';
+import { RefDirective } from './ref.directive';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
+    RefDirective,
     PostComponent,
+    ModalComponent,
     HeaderComponent,
     PostFormComponent,
     CommuterComponent,
-    PageMockTodoComponent,
     PageTodoComponent,
     PageMainComponent,
-    PageWeatherComponent,
     LineChartComponent,
     PageErrorComponent,
-    ModalComponent,
-    RefDirective,
+    PageWeatherComponent,
+    PageMockTodoComponent,
   ],
   imports: [
     FormsModule,
@@ -43,6 +44,7 @@ import {RefDirective} from './ref.directive';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
   ],
   entryComponents: [
     ModalComponent,

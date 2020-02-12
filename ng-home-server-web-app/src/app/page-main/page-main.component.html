@@ -1,1 +1,29 @@
 <p>page-main works!</p>
+<div class="wrap">
+  <button
+    class="btn"
+    (click)="animate()"
+  >
+    Animate
+  </button>
+  <button
+    class="btn"
+    (click)="boxState = 'special'"
+  >
+    Special
+  </button>
+  <button
+    class="btn btn-success"
+    (click)="visible = !visible"
+  >
+    Toggle
+  </button>
+  <hr/>
+  <div
+    class="box"
+    *ngIf="visible"
+    [@box]="boxState"
+  >
+    {{ boxState }}
+  </div>
+</div>
